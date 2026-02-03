@@ -1,0 +1,36 @@
+body, html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+.parallax-bg {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    height: 100vh; 
+    width: 100%;
+}
+
+.bg1 {
+    background-image: url('https://images.squarespace-cdn.com/content/v1/607f89e638219e13eee71b1e/1684821560422-SD5V37BAG28BURTLIXUQ/michael-sum-LEpfefQf4rU-unsplash.jpg');
+}
+
+.bg2 {
+    background-image: url('https://www.vets4pets.com/siteassets/species/cat/cat-close-up-of-side-profile.jpg');
+}
+
+.blackblock {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
