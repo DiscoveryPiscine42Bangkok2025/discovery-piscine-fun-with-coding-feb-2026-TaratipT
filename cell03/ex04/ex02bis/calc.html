@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ex02bis</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .calc-container {
+            display: flex;
+            gap: 5px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calc-container">
+        <input type="text" id="left">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="right">
+        <input type="submit" value="Try me!" id="submit">
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            setInterval(() => {
+                alert('Please, use me...');
+            }, 30000);
+
+            $('#submit').click(function () {
+                const leftRaw = $('#left').val();
+                const rightRaw = $('#right').val();
+                const op = $('#operator').val();
+
+                const left = Number(leftRaw);
+                const right = Number(rightRaw);
+
+                if (leftRaw.trim() === "" || rightRaw.trim() === "" ||
+                    left < 0 || right < 0 ||
+                    !Number.isInteger(left) || !Number.isInteger(right)) {
+                    alert('Error :(');
+                    return;
+                }
+
+                let result;
+
+                if ((op === '/' || op === '%') && right === 0) {
+                    console.log("It’s over 9000!");
+                    alert("It’s over 9000!");
+                    return;
+                }
+
+                switch (op) {
+                    case '+': result = left + right; break;
+                    case '-': result = left - right; break;
+                    case '*': result = left * right; break;
+                    case '/': result = left / right; break;
+                    case '%': result = left % right; break;
+                }
+
+                console.log(result);
+                alert(result);
+            });
+        });
+    </script>
+</body>
+
+</html>
