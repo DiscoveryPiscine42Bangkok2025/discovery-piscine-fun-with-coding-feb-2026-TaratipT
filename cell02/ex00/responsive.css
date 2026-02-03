@@ -1,0 +1,20 @@
+html,
+body {
+    height: 100%;
+}
+
+table {
+    width: 100%; border-collapse: collapse; height: 100%; table-layout: fixed;
+}
+
+.first-cell {
+    background-color: lime;
+    width: 50%;
+    border: 1px solid #444;
+}
+
+.second-cell {
+    background-color: lightskyblue;
+    width: 50%;
+    border: 1px solid #444;
+}
