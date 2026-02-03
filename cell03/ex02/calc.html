@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>It's over 9000</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .calc-container {
+            display: flex;
+            gap: 5px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calc-container">
+        <input type="text" id="left">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input type="text" id="right">
+        <input type="submit" value="Try me!" id="submit">
+    </div>
+
+    <script>
+        setInterval(() => {
+            alert('Please, use me...');
+        }, 30000);
+
+        const submitBtn = document.getElementById('submit');
+
+        submitBtn.addEventListener('click', () => {
+            const leftRaw = document.getElementById('left').value;
+            const rightRaw = document.getElementById('right').value;
+            const op = document.getElementById('operator').value;
+
+            const left = Number(leftRaw);
+            const right = Number(rightRaw);
+
+            if (leftRaw === "" || rightRaw === "" || left < 0 || right < 0 || !Number.isInteger(left) || !Number.isInteger(right)) {
+                alert('Error :(');
+                return;
+            }
+
+            let result;
+
+            if ((op === '/' || op === '%') && right === 0) {
+                console.log("It’s over 9000!");
+                alert("It’s over 9000!");
+                return;
+            }
+
+            if (op === '+') result = left + right;
+            else if (op === '-') result = left - right;
+            else if (op === '*') result = left * right;
+            else if (op === '/') result = left / right;
+            else if (op === '%') result = left % right;
+
+            console.log(result);
+            alert(result);
+        });
+    </script>
+</body>
+
+</html>
